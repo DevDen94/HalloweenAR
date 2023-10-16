@@ -19,11 +19,15 @@ public class collisionScript : MonoBehaviour
     
     void OnTriggerEnter(Collider col)
     {
-        GameObject explosion = Instantiate(Resources.Load("FlareMobile", typeof(GameObject))) as GameObject;
-        explosion.transform.position = transform.position;
-        Destroy(col.gameObject);
-        Destroy(explosion, 2);
-        Destroy(gameObject);
+        if (col.CompareTag("Enemy"))
+        {
+            GameObject explosion = Instantiate(Resources.Load("FlareMobile", typeof(GameObject))) as GameObject;
+            explosion.transform.position = transform.position;
+            Destroy(col.gameObject);
+            Destroy(explosion, 2);
+            Destroy(gameObject);
+            GameManager.Instance.Kills++;
+        }
 
 
     }
