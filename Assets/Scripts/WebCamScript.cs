@@ -18,12 +18,16 @@ public class WebCamScript : MonoBehaviour {
 
         fire.onClick.AddListener(OnButtonDown);
 
-
-
-
+       
         WebCamTexture webCameraTexture = new WebCamTexture();
         webCameraPlane.GetComponent<MeshRenderer>().material.mainTexture = webCameraTexture;
         webCameraTexture.Play();
+
+        
+        
+
+
+        
 
     }
 	

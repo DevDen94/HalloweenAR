@@ -1,10 +1,9 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using UnityStandardAssets.CrossPlatformInput;
 
-[RequireComponent(typeof (UnityEngine.UI.Image))]
+[RequireComponent(typeof (Image))]
 public class ForcedReset : MonoBehaviour
 {
     private void Update()
@@ -13,7 +12,7 @@ public class ForcedReset : MonoBehaviour
         if (CrossPlatformInputManager.GetButtonDown("ResetObject"))
         {
             //... reload the scene
-            SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
+            Application.LoadLevelAsync(Application.loadedLevelName);
         }
     }
 }
