@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PumpKinGenerator : MonoBehaviour
 {
-    [SerializeField] GameObject Pumpkin;
+    [SerializeField] GameObject[] Pumpkin;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +17,7 @@ public class PumpKinGenerator : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(2,5));
+
             StartCoroutine(GenerateRoutine());
         }
             
@@ -32,7 +33,7 @@ public class PumpKinGenerator : MonoBehaviour
         position.z = Random.Range(-20, 20);
 
 
-        Instantiate(Pumpkin, position, Quaternion.identity);
+        Instantiate(Pumpkin[Random.Range(0,Pumpkin.Length)], position, Quaternion.identity);
         yield return new WaitForSeconds(0);
     }
 
