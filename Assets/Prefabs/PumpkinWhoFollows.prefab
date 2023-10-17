@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 653324176227362257}
   - component: {fileID: 912037015764861142}
   - component: {fileID: 5650216896032563358}
+  - component: {fileID: -4035852598993198726}
   m_Layer: 0
   m_Name: PumpkinWhoFollows
   m_TagString: Enemy
@@ -128,12 +129,12 @@ Transform:
   m_GameObject: {fileID: 6595765740055920566}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -17.67, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7010038745884733664}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!54 &4057396706656077181
 Rigidbody:
@@ -181,8 +182,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.4737883, z: 1}
-  m_Center: {x: 0, y: 0.26310587, z: -0}
+  m_Size: {x: 0.62234277, y: 0.47378826, z: 0.5750897}
+  m_Center: {x: -0, y: 0.26310587, z: 0}
 --- !u!114 &912037015764861142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,3 +208,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb5e166b5da08848ba8fceacf363de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4035852598993198726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6595765740055920566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411060de4483b5e4c9847cd3cbc18554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  needBoxIndicator: 1
+  needArrowIndicator: 1
+  needDistanceText: 0
+  indicator: {fileID: 0}

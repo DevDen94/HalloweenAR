@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class WebCamScript : MonoBehaviour {
     public GameObject webCameraPlane;
     public Button fire;
+
     // Use this for initialization
     void Start () {
         if(Application.isMobilePlatform) {
@@ -33,8 +34,16 @@ public class WebCamScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Quaternion cameraRotation = new Quaternion(Input.gyro.attitude.x, Input.gyro.attitude.y, -Input.gyro.attitude.z, -Input.gyro.attitude.w);
-        this.transform.localRotation = cameraRotation;
+        if (Application.isMobilePlatform)
+        {
+            Quaternion cameraRotation = new Quaternion(Input.gyro.attitude.x, Input.gyro.attitude.y, -Input.gyro.attitude.z, -Input.gyro.attitude.w);
+            this.transform.localRotation = cameraRotation;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            OnButtonDown();
+        }
 
     }
 
