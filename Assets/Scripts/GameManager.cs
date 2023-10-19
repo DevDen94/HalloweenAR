@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -9,16 +10,18 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager Instance;
-    [SerializeField]
-    Text KillsText;
-    [SerializeField]
-    Text DeathText;
-    [SerializeField]
-    GameObject CH;
-
-    public int Kills;
-    public int Deaths;
-    int pre_val;
+    [SerializeField] GameObject PausePanel;
+    [SerializeField] GameObject GameplayPanel;
+    [SerializeField] GameObject GameoverPanel;
+    [SerializeField] Text ScoreText;
+    [SerializeField] Text LivesText;
+    [SerializeField] GameObject CrossHairKillEffect;
+    [SerializeField] GameObject ScreenDamageEffect;
+    [SerializeField] GameObject MonsterGenerator;
+    public int Score;
+    public int Lives;
+    int pre_score,pre_lives;
+    
 
     public int Coins;
 
@@ -26,11 +29,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Instance = this;
-
+        Time.timeScale = 1;
         StartCoroutine(UIWork());
-        pre_val = 0;
-        Kills = 0;
-        Deaths = 0;
+        pre_score = 0;
+        Score = 0;
+        pre_lives = Lives;
+        Lives = 3;
     }
 
     
@@ -43,18 +47,39 @@ public class GameManager : MonoBehaviour
         {
             
             yield return new WaitForSeconds(0.15f);
-            KillsText.text = Kills + "";
-            DeathText.text = Deaths + "";
+            ScoreText.text = "Score x" + Score;
+            LivesText.text = "Lives x" + Lives;
             
-            if(pre_val != Kills)
+            if(pre_score != Score)
             {
                 //Show kill effect
-                pre_val = Kills;
+                pre_score = Score;
 
-                CH.SetActive(true);
+                CrossHairKillEffect.SetActive(true);
                 Invoke("DisableKillEffect", 0.1f);
                 
             }
+
+            if(pre_lives != Lives)
+            {
+                //Show damage taken effect
+                pre_lives = Lives;
+                ScreenDamageEffect.SetActive(true);
+                Invoke("DisableDamageTakenEffect", 0.1f);
+            }
+
+
+            if (Lives <= 0)
+            {
+                MonsterGenerator.SetActive(false);
+                ShowGameOverPanel();
+                Destroy(GameObject.FindWithTag("Enemy"));
+
+            }
+
+
+
+
         }
         
 
@@ -65,27 +90,52 @@ public class GameManager : MonoBehaviour
     private void DisableKillEffect()
     {
 
-        CH.SetActive(false);
+        CrossHairKillEffect.SetActive(false);
+    }
+
+    private void DisableDamageTakenEffect()
+    {
+
+        ScreenDamageEffect.SetActive(false);
+    }
+
+
+    public void PauseButton()
+    {
+        Time.timeScale = 0;
+
+        PausePanel.SetActive(true);
+        GameplayPanel.SetActive(false);
+        
+
+
+
     }
 
 
     public void ResumeButton()
     {
+        Time.timeScale = 1;
 
+        PausePanel.SetActive(false);
+        GameplayPanel.SetActive(true);
+        
 
     }
 
 
     public void RestartButton()
     {
-
+        SceneManager.LoadScene("GamePlay");
 
     }
 
 
-    public void SettingsPanel()
+    public void SettingsButton()
     {
-
+        PausePanel.SetActive(false);
+        GameplayPanel.SetActive(false);
+       
 
 
     }
@@ -93,9 +143,16 @@ public class GameManager : MonoBehaviour
 
     public void MenuButton()
     {
-
+        SceneManager.LoadScene("Menu");
 
     }
 
+    public void ShowGameOverPanel()
+    {
+        PausePanel.SetActive(false);
+        GameplayPanel.SetActive(false);
+        GameoverPanel.SetActive(true);
+
+    }
 
 }

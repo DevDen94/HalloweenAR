@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class WebCamScript : MonoBehaviour {
     public GameObject webCameraPlane;
     public Button fire;
+    public ExtendedFlycam EFC; // For editor use only
 
     // Use this for initialization
     void Start () {
@@ -16,8 +17,13 @@ public class WebCamScript : MonoBehaviour {
             cameraParent.transform.Rotate(Vector3.right, 90);
             Input.gyro.enabled = true;
         }
+        else if (Application.isEditor)
+        {
+            EFC.enabled = true;
+        }
 
-        fire.onClick.AddListener(OnButtonDown);
+
+        //fire.onClick.AddListener(OnButtonDown);
 
        
         WebCamTexture webCameraTexture = new WebCamTexture();
@@ -40,21 +46,21 @@ public class WebCamScript : MonoBehaviour {
             this.transform.localRotation = cameraRotation;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("KeyCode.Space"))
         {
-            OnButtonDown();
+            BulletFireButton();
         }
 
     }
 
-    void OnButtonDown()
+    public void BulletFireButton()
     {
 
        GameObject bullet = Instantiate(Resources.Load("bullet", typeof(GameObject))) as GameObject;
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         bullet.transform.rotation = Camera.main.transform.rotation;
         bullet.transform.position = Camera.main.transform.position;
-        rb.AddForce(Camera.main.transform.forward * 700f);
+        rb.AddForce(Camera.main.transform.forward * 800f);
         Destroy(bullet, 3);
 
         GetComponent<AudioSource>().Play();

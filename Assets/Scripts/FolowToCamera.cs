@@ -14,7 +14,7 @@ public class FolowToCamera : MonoBehaviour
     void Update()
     {
         transform.LookAt(Camera.main.gameObject.transform.position);
-        transform.Translate(Vector3.forward * 2f * Time.deltaTime);
+        transform.Translate(Vector3.forward * Random.Range(1.0f,2.0f) * Time.deltaTime);
     }
 
    

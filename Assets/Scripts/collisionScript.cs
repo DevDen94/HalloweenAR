@@ -26,7 +26,7 @@ public class collisionScript : MonoBehaviour
             Destroy(col.gameObject);
             Destroy(explosion, 2);
             Destroy(gameObject);
-            GameManager.Instance.Kills++;
+            GameManager.Instance.Score++;
         }
 
 

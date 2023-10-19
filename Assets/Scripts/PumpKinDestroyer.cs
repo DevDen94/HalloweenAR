@@ -15,7 +15,7 @@ public class PumpKinDestroyer : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Destroy(other.gameObject);
-            GameManager.Instance.Deaths++;
+            GameManager.Instance.Lives--;
         }
     }
 }
