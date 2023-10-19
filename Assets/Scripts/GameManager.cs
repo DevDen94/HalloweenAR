@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public int Deaths;
     int pre_val;
 
+    public int Coins;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +33,7 @@ public class GameManager : MonoBehaviour
         Deaths = 0;
     }
 
-    // Update is called once per frame
+    
     
     private IEnumerator UIWork()
     {
@@ -64,6 +66,35 @@ public class GameManager : MonoBehaviour
     {
 
         CH.SetActive(false);
+    }
+
+
+    public void ResumeButton()
+    {
+
+
+    }
+
+
+    public void RestartButton()
+    {
+
+
+    }
+
+
+    public void SettingsPanel()
+    {
+
+
+
+    }
+
+
+    public void MenuButton()
+    {
+
+
     }
 
 
