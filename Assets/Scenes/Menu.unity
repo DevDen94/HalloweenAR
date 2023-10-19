@@ -355,7 +355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &266323589
 RectTransform:
   m_ObjectHideFlags: 0
@@ -784,7 +784,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 415503929}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1408472250}
+        m_TargetAssemblyTypeName: MainmenuScript, Assembly-CSharp
+        m_MethodName: MainMenuPanelButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &415503929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2709,6 +2721,7 @@ MonoBehaviour:
   MainMenuPanel: {fileID: 266323588}
   MonsterSelectPanel: {fileID: 1985977005}
   SettingsSelectPanel: {fileID: 1747600568}
+  CoinText: {fileID: 1571944723}
   Sound: 0
   Music: 0
   Coins: 0
@@ -3249,7 +3262,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1671640136}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1408472250}
+        m_TargetAssemblyTypeName: MainmenuScript, Assembly-CSharp
+        m_MethodName: MainMenuPanelButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1671640136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3615,7 +3640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1747600569
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4445,7 +4470,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1985977006
 RectTransform:
   m_ObjectHideFlags: 0
