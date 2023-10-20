@@ -14,12 +14,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject GameplayPanel;
     [SerializeField] GameObject GameoverPanel;
     [SerializeField] Text ScoreText;
+    [SerializeField] Text TotalScoreText;
     [SerializeField] Text LivesText;
     [SerializeField] GameObject CrossHairKillEffect;
     [SerializeField] GameObject ScreenDamageEffect;
     [SerializeField] GameObject MonsterGenerator;
     public int Score;
+    public int TotalScore;
     public int Lives;
+
+
     int pre_score,pre_lives;
     
 
@@ -28,6 +32,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        TotalScore = PlayerPrefs.GetInt("TotalScore", 0);
+
+
         Instance = this;
         Time.timeScale = 1;
         StartCoroutine(UIWork());
@@ -47,8 +54,8 @@ public class GameManager : MonoBehaviour
         {
             
             yield return new WaitForSeconds(0.15f);
-            ScoreText.text = "Score x" + Score;
-            LivesText.text = "Lives x" + Lives;
+            ScoreText.text = "" + Score;
+            LivesText.text = "" + Lives;
             
             if(pre_score != Score)
             {
@@ -74,6 +81,11 @@ public class GameManager : MonoBehaviour
                 MonsterGenerator.SetActive(false);
                 ShowGameOverPanel();
                 Destroy(GameObject.FindWithTag("Enemy"));
+                
+                PlayerPrefs.SetInt("TotalScore",TotalScore + Score);
+                TotalScore = TotalScore + Score;
+                TotalScoreText.text = "" + TotalScore;
+
 
             }
 

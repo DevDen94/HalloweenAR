@@ -11,13 +11,13 @@ public class MainmenuScript : MonoBehaviour
     [SerializeField] GameObject MainMenuPanel;
     [SerializeField] GameObject MonsterSelectPanel;
     [SerializeField] GameObject SettingsSelectPanel;
-    [SerializeField] Text CoinText;
+    [SerializeField] Text CandiesText;
     
     public bool Sound;
     
     public bool Music;
 
-    public int Coins;
+    public int Candies;
 
 
 
@@ -28,7 +28,7 @@ public class MainmenuScript : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-        CoinText.text = ""+PlayerPrefs.GetInt("Coins",0);
+        CandiesText.text = ""+PlayerPrefs.GetInt("TotalScore",0);
     }
 
     // Update is called once per frame

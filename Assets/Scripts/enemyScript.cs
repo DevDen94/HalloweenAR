@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class enemyScript : MonoBehaviour {
 
+    float speed = 3.0f;
 
     // Use this for initialization
     void Start()
@@ -16,7 +17,7 @@ public class enemyScript : MonoBehaviour {
     void Update()
     {
 
-        transform.Translate(Vector3.forward * 3f * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
     IEnumerator Move()

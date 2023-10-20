@@ -186,6 +186,15 @@ MonoBehaviour:
   - {fileID: 2027627837}
   - {fileID: 1983126543}
   - {fileID: 300851857}
+  TotalCandies: 0
+  SelectionImage:
+  - {fileID: 1983201091}
+  - {fileID: 199118766}
+  - {fileID: 560463625}
+  - {fileID: 1290893481}
+  - {fileID: 1654128644}
+  - {fileID: 227874371}
+  TotalCandiesText: {fileID: 1571944723}
 --- !u!1 &199118766
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &199118767
 RectTransform:
   m_ObjectHideFlags: 0
@@ -279,7 +288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &227874372
 RectTransform:
   m_ObjectHideFlags: 0
@@ -516,7 +525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &300851856
 RectTransform:
   m_ObjectHideFlags: 0
@@ -583,7 +592,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 300851858}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 162759229}
+        m_TargetAssemblyTypeName: ActiveMonsterCheckScript, Assembly-CSharp
+        m_MethodName: PurchaseDracs
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &300851858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,7 +655,7 @@ GameObject:
   - component: {fileID: 383992606}
   - component: {fileID: 383992605}
   m_Layer: 5
-  m_Name: Coins
+  m_Name: CandiesText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -693,7 +714,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Coins 999
+  m_Text: Candies 999
 --- !u!222 &383992606
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1072,7 +1093,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &560463626
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2256,7 +2277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1290893482
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2721,10 +2742,10 @@ MonoBehaviour:
   MainMenuPanel: {fileID: 266323588}
   MonsterSelectPanel: {fileID: 1985977005}
   SettingsSelectPanel: {fileID: 1747600568}
-  CoinText: {fileID: 1571944723}
+  CandiesText: {fileID: 383992605}
   Sound: 0
   Music: 0
-  Coins: 0
+  Candies: 0
 --- !u!4 &1408472251
 Transform:
   m_ObjectHideFlags: 0
@@ -2912,7 +2933,7 @@ GameObject:
   - component: {fileID: 1571944724}
   - component: {fileID: 1571944723}
   m_Layer: 5
-  m_Name: Coins
+  m_Name: TotaCandies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3065,7 +3086,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1606496016}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 162759229}
+        m_TargetAssemblyTypeName: ActiveMonsterCheckScript, Assembly-CSharp
+        m_MethodName: PurchaseGhost
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1606496016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3121,7 +3154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1654128645
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3436,7 +3469,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1701631509}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 162759229}
+        m_TargetAssemblyTypeName: ActiveMonsterCheckScript, Assembly-CSharp
+        m_MethodName: PurchasePumpkin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1701631509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4214,7 +4259,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1967343628}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 162759229}
+        m_TargetAssemblyTypeName: ActiveMonsterCheckScript, Assembly-CSharp
+        m_MethodName: PurchaseBats
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1967343628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4271,7 +4328,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1983126542
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4338,7 +4395,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1983126544}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 162759229}
+        m_TargetAssemblyTypeName: ActiveMonsterCheckScript, Assembly-CSharp
+        m_MethodName: PurchaseMummy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1983126544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4617,7 +4686,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2027627838}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 162759229}
+        m_TargetAssemblyTypeName: ActiveMonsterCheckScript, Assembly-CSharp
+        m_MethodName: PurchaseWitch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2027627838
 MonoBehaviour:
   m_ObjectHideFlags: 0
