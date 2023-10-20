@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
 
     int pre_score,pre_lives;
-    
+    public bool isover;
 
     public int Coins;
 
@@ -34,14 +34,14 @@ public class GameManager : MonoBehaviour
     {
         TotalScore = PlayerPrefs.GetInt("TotalScore", 0);
 
-
+        isover = false;
         Instance = this;
         Time.timeScale = 1;
         StartCoroutine(UIWork());
         pre_score = 0;
         Score = 0;
         pre_lives = Lives;
-        Lives = 3;
+        Lives = 5;
     }
 
     
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
 
                 CrossHairKillEffect.SetActive(true);
                 Invoke("DisableKillEffect", 0.1f);
-                
+                Debug.Log("Score");
             }
 
             if(pre_lives != Lives)
@@ -73,19 +73,21 @@ public class GameManager : MonoBehaviour
                 pre_lives = Lives;
                 ScreenDamageEffect.SetActive(true);
                 Invoke("DisableDamageTakenEffect", 0.1f);
+                Debug.Log("Score");
             }
 
 
-            if (Lives <= 0)
+            if (Lives <= 0 && !isover)
             {
                 MonsterGenerator.SetActive(false);
                 ShowGameOverPanel();
                 Destroy(GameObject.FindWithTag("Enemy"));
                 
                 PlayerPrefs.SetInt("TotalScore",TotalScore + Score);
-                TotalScore = TotalScore + Score;
-                TotalScoreText.text = "" + TotalScore;
-
+                TotalScore = TotalScore +Score;
+                TotalScoreText.text = "" + Score;
+                Debug.Log("Score");
+                isover = true;
 
             }
 
@@ -115,6 +117,7 @@ public class GameManager : MonoBehaviour
     public void PauseButton()
     {
         Time.timeScale = 0;
+        AudioManager.instance.onButtonClick();
 
         PausePanel.SetActive(true);
         GameplayPanel.SetActive(false);
@@ -128,6 +131,7 @@ public class GameManager : MonoBehaviour
     public void ResumeButton()
     {
         Time.timeScale = 1;
+        AudioManager.instance.onButtonClick();
 
         PausePanel.SetActive(false);
         GameplayPanel.SetActive(true);
@@ -138,6 +142,8 @@ public class GameManager : MonoBehaviour
 
     public void RestartButton()
     {
+        AudioManager.instance.onButtonClick();
+
         SceneManager.LoadScene("GamePlay");
 
     }
@@ -147,7 +153,8 @@ public class GameManager : MonoBehaviour
     {
         PausePanel.SetActive(false);
         GameplayPanel.SetActive(false);
-       
+        AudioManager.instance.onButtonClick();
+
 
 
     }
@@ -156,11 +163,15 @@ public class GameManager : MonoBehaviour
     public void MenuButton()
     {
         SceneManager.LoadScene("Menu");
+        AudioManager.instance.onButtonClick();
 
     }
 
     public void ShowGameOverPanel()
     {
+
+        AudioManager.instance.fail_();
+
         PausePanel.SetActive(false);
         GameplayPanel.SetActive(false);
         GameoverPanel.SetActive(true);

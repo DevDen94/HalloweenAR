@@ -19,7 +19,7 @@ public class MainmenuScript : MonoBehaviour
 
     public int Candies;
 
-
+    public Toggle Music_, Sound_;
 
 
 
@@ -39,12 +39,16 @@ public class MainmenuScript : MonoBehaviour
 
     public void PlayButton()
     {
+
+        AudioManager.instance.onButtonClick();
         SceneManager.LoadScene("GamePlay");
     }
 
 
     public void MainMenuPanelButton()
     {
+        AudioManager.instance.onButtonClick();
+
         MainMenuPanel.SetActive(true);
         MonsterSelectPanel.SetActive(false);
         SettingsSelectPanel.SetActive(false);
@@ -53,6 +57,8 @@ public class MainmenuScript : MonoBehaviour
 
     public void MonsterSelectPanelButton()
     {
+        AudioManager.instance.onButtonClick();
+
         MainMenuPanel.SetActive(false);
         MonsterSelectPanel.SetActive(true);
         SettingsSelectPanel.SetActive(false);
@@ -60,10 +66,47 @@ public class MainmenuScript : MonoBehaviour
 
     public void SettingsPanelButton()
     {
+        AudioManager.instance.onButtonClick();
+
         MainMenuPanel.SetActive(false);
         MonsterSelectPanel.SetActive(false);
         SettingsSelectPanel.SetActive(true);
 
+    }
+    public void click()
+    {
+        AudioManager.instance.onButtonClick();
+
+    }
+
+    public void quit()
+    {
+        Application.Quit();
+    }
+
+
+    public void MusicToogle()
+    {
+        if (Music_.isOn)
+        {
+            AudioManager.instance.MainMenu.Play();
+        }
+        else if (!Music_.isOn)
+        {
+            AudioManager.instance.MainMenu.Stop();
+        }
+
+    }
+    public void soundToogle()
+    {
+        if (Sound_.isOn)
+        {
+            AudioManager.instance.sound=true;
+        }
+        else if (!Sound_.isOn)
+        {
+            AudioManager.instance.sound=false;
+        }
     }
 
 }

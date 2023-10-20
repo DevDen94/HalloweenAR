@@ -46,7 +46,7 @@ public class WebCamScript : MonoBehaviour {
             this.transform.localRotation = cameraRotation;
         }
 
-        if (Input.GetButtonDown("KeyCode.Space"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             BulletFireButton();
         }
@@ -63,7 +63,8 @@ public class WebCamScript : MonoBehaviour {
         rb.AddForce(Camera.main.transform.forward * 800f);
         Destroy(bullet, 3);
 
-        GetComponent<AudioSource>().Play();
+        if (AudioManager.instance.sound)
+            GetComponent<AudioSource>().Play();
 
 
     }
