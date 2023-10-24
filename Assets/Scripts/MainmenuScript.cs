@@ -27,6 +27,7 @@ public class MainmenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //PlayerPrefs.SetInt("TotalScore", 50);
         Time.timeScale = 1;
         CandiesText.text = ""+PlayerPrefs.GetInt("TotalScore",0);
     }

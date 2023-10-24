@@ -8,7 +8,7 @@ public class ActiveMonsterCheckScript : MonoBehaviour
     [SerializeField] Button[] MonstersButton;
     public int TotalCandies;
     [SerializeField] GameObject[] SelectionImage;
-    public Text TotalCandiesText;
+    public Text TotalCandiesText, TotalCandiesText1;
     int MonsterSelect;
 
     int BatCheck;
@@ -38,7 +38,7 @@ public class ActiveMonsterCheckScript : MonoBehaviour
     void Update()
     {
         TotalCandiesText.text = "" + TotalCandies;
-
+        TotalCandiesText1.text = "" + TotalCandies;
         if (Input.GetKeyDown(KeyCode.Space)) //give hundred candies
         {
             PlayerPrefs.SetInt("TotalScore", 100);
@@ -64,12 +64,16 @@ public class ActiveMonsterCheckScript : MonoBehaviour
 
     public void PurchaseBats()
     {
+        BatCheck = PlayerPrefs.GetInt("BatCheck");
         if (BatCheck == 1)
         {
+
+            Debug.Log("---");
             DisableAllSelectionImagesExceptSelected(1);
         }
         else if (TotalCandies >= 50)
         {
+            Debug.Log("!!!");
             DisableAllSelectionImagesExceptSelected(1);
             TotalCandies = TotalCandies - 50;
             PlayerPrefs.SetInt("TotalScore", TotalCandies);
@@ -81,6 +85,7 @@ public class ActiveMonsterCheckScript : MonoBehaviour
 
     public void PurchaseGhost()
     {
+        GhostCheck= PlayerPrefs.GetInt("GhostCheck");
         if (GhostCheck == 1)
         {
             DisableAllSelectionImagesExceptSelected(2);
@@ -98,6 +103,7 @@ public class ActiveMonsterCheckScript : MonoBehaviour
 
     public void PurchaseWitch()
     {
+        WitchCheck = PlayerPrefs.GetInt("WitchCheck");
         if (WitchCheck == 1)
         {
             DisableAllSelectionImagesExceptSelected(3);
